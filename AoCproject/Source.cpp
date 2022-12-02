@@ -2,14 +2,16 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include <chrono>
 
 int main()
 {
     // ifstream is used for reading files
+    auto begin = std::chrono::high_resolution_clock::now();
     std::ifstream potato{ "elves.txt" };
     std::string storedInput = "";
     int elfCalories{ 0 };
-    int bigCals{ 0 };
+    int totalCals{ 0 };
 
     std::map<int, int> elves{ {1,1} };
     std::map<std::string, int> thiccElves{{"thicc", 0}, {"thiccer", 0}, {"thiccest", 0}};
@@ -54,20 +56,20 @@ int main()
                 thiccElves["thicc"] = elfCalories;
             }
 
+            //no se pq, pero insert no funciona....
             //elves.insert(elfNumber, elfCalories);
             elfCalories = 0;
             elfNumber++;
         }
-
-        //storedInput.append(strInput);
-        //std::cout << "Elf: " << elf << '\n';
-        //std::cout << "Thicc: " << thiccElf << '\n';
         
     }
-    bigCals = thiccElves["thicc"] + thiccElves["thiccer"] + thiccElves["thiccest"];
+    totalCals = thiccElves["thicc"] + thiccElves["thiccer"] + thiccElves["thiccest"];
     std::cout << "Thicc: " << thiccElves["thicc"] << '\n';
     std::cout << "Thiccer: " << thiccElves["thiccer"] << '\n';
     std::cout << "Thiccest: " << thiccElves["thiccest"] << '\n';
-    std::cout << "Big Calories: " << bigCals << '\n';
+    std::cout << "Total Calories: " << totalCals << '\n';
+    auto end = std::chrono::high_resolution_clock::now();
+    auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+    std::cout << "Elapsed time: " << (elapsed.count() * 1e-9) << '\n';
     return 0;
 }
