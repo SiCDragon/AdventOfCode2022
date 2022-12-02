@@ -1,5 +1,5 @@
 #ifndef DAY1_H
-#define DAY_H
+#define DAY1_H
 
 #include <fstream>
 #include <string>
