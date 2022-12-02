@@ -4,7 +4,7 @@
 int main()
 {
 
-    std::cout << day1() << '\n';
+    elfCalorieCalculator();
 
     return 0;
 

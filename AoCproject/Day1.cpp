@@ -5,7 +5,7 @@
 #include <chrono>
 
 
-int day1()
+int elfCalorieCalculator()
 {
     // ifstream is used for reading files
     auto begin = std::chrono::high_resolution_clock::now();
@@ -45,7 +45,6 @@ int day1()
             {
                 thiccElves["thiccer"] = thiccElves["thiccest"];
                 thiccElves["thiccest"] = elfCalories;
-
             }
             else if (elfCalories < thiccElves["thiccest"] && elfCalories > thiccElves["thiccer"])
             {
