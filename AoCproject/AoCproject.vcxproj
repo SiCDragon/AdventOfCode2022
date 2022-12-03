@@ -139,11 +139,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Day1.cpp" />
     <ClCompile Include="Day1\Day1.cpp" />
-    <ClCompile Include="Day2.cpp" />
     <ClCompile Include="Day2\Day2.cpp" />
-    <ClCompile Include="Day3.cpp" />
     <ClCompile Include="Day3\Day3.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
@@ -151,16 +148,10 @@
     <Text Include="Day1\elfCalories.txt" />
     <Text Include="Day2\RPSGameStrat.txt" />
     <Text Include="Day3\elfItems.txt" />
-    <Text Include="elfCalories.txt" />
-    <Text Include="elfItems.txt" />
-    <Text Include="RPSGameStrat.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Day1.h" />
     <ClInclude Include="Day1\Day1.h" />
-    <ClInclude Include="Day2.h" />
     <ClInclude Include="Day2\Day2.h" />
-    <ClInclude Include="Day3.h" />
     <ClInclude Include="Day3\Day3.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
