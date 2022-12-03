@@ -27,11 +27,29 @@
     <ClCompile Include="Day3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Day1\Day1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Day2\Day2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Day3\Day3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="elfCalories.txt" />
     <Text Include="RPSGameStrat.txt" />
     <Text Include="elfItems.txt" />
+    <Text Include="Day1\elfCalories.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Day3\elfItems.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Day2\RPSGameStrat.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Day1.h">
@@ -41,6 +59,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Day3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Day1\Day1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Day2\Day2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Day3\Day3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
