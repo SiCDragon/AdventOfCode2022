@@ -16,7 +16,7 @@ int elfRucksack()
 
     std::string elfItems[2] = {"" , ""};
     int totalValue{ 0 };
-    char priorityItem;
+    char priorityItem{ 'a' };
 
     // If we couldn't open the input file stream for reading
     if (!potato)
