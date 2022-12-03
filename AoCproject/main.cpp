@@ -1,15 +1,21 @@
 #include <iostream>
-#include "Day3.h"
+#include "Day1/Day1.h"
+#include "Day2/Day2.h"
+#include "Day3/Day3.h"
+
 
 int main()
 {
+	//Day 1
+	elfCalorieCalculator();
 
-    //elfCalorieCalculator();
-    //elfRockPaperScissorsGamePart1();
-    //elfRockPaperScissorsGamePart2();
-    //elfRucksack();
-    elfRucksackPart2();
+	//Day 2
+	elfRockPaperScissorsGamePart1();
+	elfRockPaperScissorsGamePart2();
 
-    return 0;
+	//Day 3
+	elfRucksack();
+	elfRucksackPart2();
 
+	return 0;
 }

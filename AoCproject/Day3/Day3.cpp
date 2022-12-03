@@ -10,7 +10,7 @@ int elfRucksack()
     // ifstream is used for reading files
     auto begin = std::chrono::high_resolution_clock::now();
 
-    std::ifstream potato{ "elfItems.txt" };
+    std::ifstream potato{ "Day3/elfItems.txt" };
     std::string storedInput;
     std::string strInput;
 
@@ -68,7 +68,7 @@ int elfRucksackPart2()
     // ifstream is used for reading files
     auto begin = std::chrono::high_resolution_clock::now();
 
-    std::ifstream potato{ "elfItems.txt" };
+    std::ifstream potato{ "Day3/elfItems.txt" };
     std::string storedInput;
     std::string strInput;
 

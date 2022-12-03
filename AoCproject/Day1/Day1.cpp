@@ -9,7 +9,7 @@ int elfCalorieCalculator()
 {
     // ifstream is used for reading files
     auto begin = std::chrono::high_resolution_clock::now();
-    std::ifstream potato{ "elfCalories.txt" };
+    std::ifstream potato{ "Day1/elfCalories.txt" };
     std::string storedInput = "";
     int elfCalories{ 0 };
     int totalCals{ 0 };

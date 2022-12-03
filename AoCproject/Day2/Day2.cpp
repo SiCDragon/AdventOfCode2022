@@ -9,7 +9,7 @@ int elfRockPaperScissorsGamePart1()
 {
     // ifstream is used for reading files
     auto begin = std::chrono::high_resolution_clock::now();
-    std::ifstream potato{ "RPSGameStrat.txt" };
+    std::ifstream potato{ "Day2/RPSGameStrat.txt" };
     std::string storedInput;
     
     std::string oppo;
@@ -75,7 +75,7 @@ int elfRockPaperScissorsGamePart2()
 {
     // ifstream is used for reading files
     auto begin = std::chrono::high_resolution_clock::now();
-    std::ifstream potato{ "RPSGameStrat.txt" };
+    std::ifstream potato{ "Day2/RPSGameStrat.txt" };
     std::string storedInput;
 
     std::string oppo;
