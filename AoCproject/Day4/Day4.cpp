@@ -56,8 +56,8 @@ int elfSpacePairs()
     std::cout << "Total Val: " << totalPairs << '\n'; 
     std::cout << "Total Overlap: " << totalOverlap << '\n';
     auto end = std::chrono::high_resolution_clock::now();
-    auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin);
-    std::cout << "Elapsed time: " << (elapsed.count() * 1e-9) << '\n';
+    auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+    std::cout << "Elapsed time: " << (elapsed.count()) << '\n';
 
     return totalPairs;
 }
