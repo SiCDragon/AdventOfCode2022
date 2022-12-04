@@ -2,6 +2,7 @@
 #include "Day1/Day1.h"
 #include "Day2/Day2.h"
 #include "Day3/Day3.h"
+#include "Day4/Day4.h"
 
 
 int main()
@@ -17,7 +18,10 @@ int main()
 	//elfRucksack();
 	//elfRucksackPart2();
 	//elfRucksackB();
-	elfRucksackB2();
+	//elfRucksackB2();
+
+	//Day 4
+	elfSpacePairs();
 
 	return 0;
 }
