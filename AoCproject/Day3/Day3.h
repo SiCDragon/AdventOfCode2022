@@ -2,13 +2,12 @@
 #define DAY3_H
 
 #include <fstream>
+#include <iostream>
 #include <string>
-#include <map>
-#include <chrono>
+#include <algorithm>
+#include <iterator>
 
 #endif
 
-int elfRucksack();
-int elfRucksackPart2();
-int elfRucksackB();
-int elfRucksackB2();
+void elfRucksack();
+void elfRucksack2();

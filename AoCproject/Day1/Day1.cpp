@@ -1,14 +1,7 @@
-#include <fstream>
-#include <iostream>
-#include <string>
-#include <map>
-#include <chrono>
+#include "Day1.h"
 
-
-int elfCalorieCalculator()
+void elfCalorieCalculator()
 {
-    // ifstream is used for reading files
-    auto begin = std::chrono::high_resolution_clock::now();
     std::ifstream potato{ "Day1/elfCalories.txt" };
     std::string storedInput = "";
     int elfCalories{ 0 };
@@ -24,7 +17,6 @@ int elfCalorieCalculator()
     {
         // Print an error and exit
         std::cerr << "Uh oh, Sample.txt could not be opened for reading!\n";
-        return 1;
     }
 
     // While there's still stuff left to read
@@ -67,10 +59,4 @@ int elfCalorieCalculator()
     std::cout << "Thiccer: " << thiccElves["thiccer"] << '\n';
     std::cout << "Thiccest: " << thiccElves["thiccest"] << '\n';
     std::cout << "Total Calories: " << totalCals << '\n';
-
-    auto end = std::chrono::high_resolution_clock::now();
-    auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
-    std::cout << "Elapsed time: " << (elapsed.count() * 1e-9) << '\n';
-
-    return totalCals;
 }

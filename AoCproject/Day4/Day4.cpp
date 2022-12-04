@@ -1,15 +1,7 @@
-#include <fstream>
-#include <iostream>
-#include <string>
-#include <algorithm>
-#include <iterator>
-#include <chrono>
+#include "Day4.h"
 
-int elfSpacePairs()
+void elfSpacePairs()
 {
-    // ifstream is used for reading files
-    auto begin = std::chrono::high_resolution_clock::now();
-
     std::ifstream potato{ "Day4/spacePairs.txt" };
     std::string strInput{ "" };
 
@@ -24,7 +16,6 @@ int elfSpacePairs()
     if (!potato)
     {
         std::cerr << "Uh oh, Sample.txt could not be opened for reading!\n";
-        return 1;
     }
     while (potato)
     {
@@ -55,11 +46,6 @@ int elfSpacePairs()
 
     std::cout << "Total Val: " << totalPairs << '\n'; 
     std::cout << "Total Overlap: " << totalOverlap << '\n';
-    auto end = std::chrono::high_resolution_clock::now();
-    auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
-    std::cout << "Elapsed time: " << (elapsed.count()) << '\n';
-
-    return totalPairs;
 }
 
 

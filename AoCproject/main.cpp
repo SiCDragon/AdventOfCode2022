@@ -1,27 +1,26 @@
-#include <iostream>
-#include "Day1/Day1.h"
-#include "Day2/Day2.h"
-#include "Day3/Day3.h"
-#include "Day4/Day4.h"
+#include <chrono>
+#include "AdventDays.h"
 
 
 int main()
 {
+	auto begin = std::chrono::high_resolution_clock::now();
 	//Day 1
-	//elfCalorieCalculator();
+	elfCalorieCalculator();
 
 	//Day 2
-	//elfRockPaperScissorsGamePart1();
-	//elfRockPaperScissorsGamePart2();
+	elfRockPaperScissorsGamePart1();
+	elfRockPaperScissorsGamePart2();
 
 	//Day 3
-	//elfRucksack();
-	//elfRucksackPart2();
-	//elfRucksackB();
-	//elfRucksackB2();
+	elfRucksack();
+	elfRucksack2();
 
 	//Day 4
 	elfSpacePairs();
 
+	auto end = std::chrono::high_resolution_clock::now();
+	auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+	std::cout << "Elapsed time: " << (elapsed.count()) << '\n';
 	return 0;
 }

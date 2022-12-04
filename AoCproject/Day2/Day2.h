@@ -2,11 +2,11 @@
 #define DAY2_H
 
 #include <fstream>
+#include <iostream>
 #include <string>
 #include <map>
-#include <chrono>
 
 #endif
 
-int elfRockPaperScissorsGamePart1();
-int elfRockPaperScissorsGamePart2();
+void elfRockPaperScissorsGamePart1();
+void elfRockPaperScissorsGamePart2();
