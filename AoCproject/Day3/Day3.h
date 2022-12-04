@@ -10,3 +10,5 @@
 
 int elfRucksack();
 int elfRucksackPart2();
+int elfRucksackB();
+int elfRucksackB2();

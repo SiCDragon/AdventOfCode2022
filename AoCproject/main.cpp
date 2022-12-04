@@ -7,15 +7,17 @@
 int main()
 {
 	//Day 1
-	elfCalorieCalculator();
+	//elfCalorieCalculator();
 
 	//Day 2
-	elfRockPaperScissorsGamePart1();
-	elfRockPaperScissorsGamePart2();
+	//elfRockPaperScissorsGamePart1();
+	//elfRockPaperScissorsGamePart2();
 
 	//Day 3
-	elfRucksack();
-	elfRucksackPart2();
+	//elfRucksack();
+	//elfRucksackPart2();
+	//elfRucksackB();
+	elfRucksackB2();
 
 	return 0;
 }
