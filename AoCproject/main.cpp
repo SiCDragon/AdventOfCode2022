@@ -6,18 +6,21 @@ int main()
 {
 	auto begin = std::chrono::high_resolution_clock::now();
 	//Day 1
-	elfCalorieCalculator();
+	//elfCalorieCalculator();
 
 	//Day 2
-	elfRockPaperScissorsGamePart1();
-	elfRockPaperScissorsGamePart2();
+	//elfRockPaperScissorsGamePart1();
+	//elfRockPaperScissorsGamePart2();
 
 	//Day 3
-	elfRucksack();
-	elfRucksack2();
+	//elfRucksack();
+	//elfRucksack2();
 
 	//Day 4
-	elfSpacePairs();
+	//elfSpacePairs();
+
+	//Day 5
+	elfCranes();
 
 	auto end = std::chrono::high_resolution_clock::now();
 	auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);

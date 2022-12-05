@@ -47,7 +47,3 @@ void elfSpacePairs()
     std::cout << "Total Val: " << totalPairs << '\n'; 
     std::cout << "Total Overlap: " << totalOverlap << '\n';
 }
-
-
-
-
