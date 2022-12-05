@@ -5,7 +5,7 @@ void elfCranes()
     std::ifstream potato{ "Day5/Day5Input.txt" };
     std::ifstream tomato{ "Day5/Day5InputStacks.txt" };
     std::string strInput{ "" }, letterInput{ "" }, topOfStacks{ "" };
-    std::string topOfStacks2{ "" }, stackToMove{ "" }, stackToKeep{ "" }, tempLetter{ "" };
+    std::string topOfStacks2{ "" }, stackToMove{ "" }, tempLetter{ "" };
 
     std::map<int,  std::deque<std::string> > myStacks;
     std::map<int, std::string > myStacks2;
@@ -59,13 +59,10 @@ void elfCranes()
 
         //Part 2
         stackToMove.clear();
-        stackToKeep.clear();
         stackToMove.append(myStacks2[stackMoves.initStack].substr(myStacks2[stackMoves.initStack].length()-stackMoves.moves));
-        stackToKeep.append(myStacks2[stackMoves.initStack].substr(0, myStacks2[stackMoves.initStack].length() - stackMoves.moves));
 
         myStacks2[stackMoves.endStack].append(stackToMove);
-        myStacks2[stackMoves.initStack].clear();
-        myStacks2[stackMoves.initStack].append(stackToKeep);
+        myStacks2[stackMoves.initStack].erase(myStacks2[stackMoves.initStack].length() - stackMoves.moves, stackToMove.length());
 
         if (potato.eof()) { break; }
     }
