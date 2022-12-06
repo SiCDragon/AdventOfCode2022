@@ -20,7 +20,10 @@ int main()
 	//elfSpacePairs();
 
 	//Day 5
-	elfCranes();
+	//elfCranes();
+
+	//Day 6
+	elfComms();
 
 	auto end = std::chrono::high_resolution_clock::now();
 	auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);

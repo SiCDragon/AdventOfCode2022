@@ -72,7 +72,7 @@ void elfCranes()
         std::cout << "Stack " << i << " letter " << myStacks[i].front() << '\n';
         topOfStacks.append(myStacks[i].front());
         tempLetter = myStacks2[i].back();
-        std::cout << "Stack " << i << " letter " << tempLetter << '\n';
+        std::cout << "Stack 2 " << i << " letter " << tempLetter << '\n';
         topOfStacks2.append(tempLetter);
     }
     std::cout << "Top of the Stacks: " << topOfStacks << '\n';

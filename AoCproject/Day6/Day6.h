@@ -1,5 +1,5 @@
-#ifndef DAY5_H
-#define DAY5_H
+#ifndef DAY6_H
+#define DAY6_H
 
 #include <fstream>
 #include <iostream>
@@ -12,4 +12,4 @@
 
 #endif
 
-void elfCranes();
+void elfComms();
