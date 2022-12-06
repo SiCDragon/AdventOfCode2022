@@ -6,7 +6,7 @@ void elfComms()
     std::string message;
     std::string letter{ "a" };
 
-    int totalValue{ 0 }, found{ 0 }, expectedMessageLength{ 4 };
+    int totalValue{ 0 }, found{ 0 }, expectedMessageLength{ 14 };
     bool isFound{ false };
 
     for (int it = 0; it < stringInput.length() - expectedMessageLength; it++)
@@ -33,48 +33,6 @@ void elfComms()
             totalValue = it + expectedMessageLength;
             break;
         }
-
     }
-
     std::cout << "Total Val: " << totalValue << '\n';
 }
-
-//void elfRucksack2()
-//{
-//    std::ifstream potato{ "Day3/elfItems.txt" };
-//    std::string strInput, priorityLetter;
-//
-//    std::string elfItems[3] = { "" , "", "" };
-//    int totalValue{ 0 }, count{ 0 };
-//
-//    if (!potato)
-//    {
-//        std::cerr << "Uh oh, Sample.txt could not be opened for reading!\n";
-//    }
-//    while (potato)
-//    {
-//        std::getline(potato, strInput);
-//        elfItems[count++] = strInput;
-//
-//        if (count == 3)
-//        {
-//            count = 0;
-//
-//            //inputs to set_intersection need to be sorted first
-//            std::sort(elfItems[0].begin(), elfItems[0].end());
-//            std::sort(elfItems[1].begin(), elfItems[1].end());
-//            std::set_intersection(elfItems[0].begin(), elfItems[0].end(),
-//                elfItems[1].begin(), elfItems[1].end(), std::back_inserter(priorityLetter));
-//
-//            std::sort(elfItems[2].begin(), elfItems[2].end());
-//            std::sort(priorityLetter.begin(), priorityLetter.end());
-//            std::set_intersection(priorityLetter.begin(), priorityLetter.end(),
-//                elfItems[2].begin(), elfItems[2].end(), std::back_inserter(priorityLetter));
-//        }
-//        if (potato.eof()) { break; }
-//    }
-//
-//    std::cout << "Total Val: " << totalValue << '\n';
-//}
-
-
