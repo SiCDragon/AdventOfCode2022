@@ -9,7 +9,7 @@
 #include "Day6/Day6.h"
 #include "Day7/Day7.h"
 #include "Day8/Day8.h"
-//#include "Day9/Day9.h"
+#include "Day9/Day9.h"
 //#include "Day10/Day10.h"
 //#include "Day11/Day11.h"
 //#include "Day12/Day12.h"

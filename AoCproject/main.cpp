@@ -26,10 +26,13 @@ int main()
 	//elfComms();
 
 	//Day 7
-	elfDir();
+	//elfDir();
 
 	//Day 8
 	//elfTreeHouse();
+
+	//Day 9
+	elfTail();
 
 	auto end = std::chrono::high_resolution_clock::now();
 	auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);

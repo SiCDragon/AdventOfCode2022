@@ -29,31 +29,31 @@ public:
 class Folder
 {
 private:
-    std::map<int , File> filesInDir;
+    std::map<int, File> filesInDir;
     std::map<int, std::string> subDirs;
     std::string folderPath;
     std::string dirName;
     int dirSize;
     int dirLevel;
-    int fileNum;
-    int subDirNum;
+    int dirItems;
 
 public:
     Folder() {}
-    Folder(std::string name, int level, std::string pathToFile)
+    Folder(std::string name, int level, std::string p)
     {
         dirName = name;
         dirLevel = level;
-        folderPath = pathToFile;
-        fileNum = 0;
-        subDirNum = 0;
+        folderPath = p;
+        dirItems = 0;
     }
     
-    void addFile(File f) { filesInDir.insert({ fileNum++, f}); }
-    void addSubDir(std::string s) { subDirs.insert({ subDirNum++, s }); }
+    void addFile(File f) { filesInDir.insert({ dirItems++, f }); }
+    void addSubDir(std::string s) { subDirs.insert({ dirItems++, s }); }
+    
     void setDirName(std::string n) { dirName = n; }
     std::string getDirName() { return dirName; }
-
+    int getDirItems() { return dirItems; }
+    std::map<int, std::string> getSubDirs() { return subDirs; }
 
     void printFiles() {
         for (auto const& idx : filesInDir) {
@@ -77,8 +77,6 @@ public:
         }
         return folderSize;
     }
-
-    
 };
 
 void elfDir()
@@ -159,7 +157,13 @@ void elfDir()
         //x.printFiles();
         x.printSubDirs();
         std::cout << " Folder Size: " << x.getFolderSize() << '\n';
-        totalBytes += x.getFolderSize();
+
+        for (auto const& id : x.getSubDirs()) {
+            std::cout << " sub dirs " << id.second << '\n';
+        }
+
+        if (x.getFolderSize() < 100000) { totalBytes += x.getFolderSize(); }
+       
     }
     std::cout << " Total size: " << totalBytes << '\n';
 }
