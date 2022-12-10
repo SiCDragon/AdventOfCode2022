@@ -34,7 +34,6 @@ private:
     std::vector <File> filesInDir;
     std::string folderPath;
     std::string dirName;
-    int dirSize;
 
 public:
     Folder() {}
