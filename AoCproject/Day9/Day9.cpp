@@ -16,14 +16,16 @@ private:
     std::pair<int, int> currentTailPosition;
     int totalPositions;
     int totalTailPositions;
+    int knots;
     int x, y;
     bool isTailTooFarFromHead;
 
 public:
-    Rope()
+    Rope(int k)
     {
         x = 0;
         y = 0;
+        knots = k;
         currentHeadPosition = { x,y };
         currentTailPosition = { x,y };
         totalPositions = 0;
@@ -102,8 +104,14 @@ void elfTail()
     std::string moveDirStr{ "" }, moveAmountStr{ "" };
 
     int totalBytes{ 0 }, dirLevel{ 0 };
-    Rope myRope = Rope();
+    Rope myRope = Rope(2);
     int tailMoves{ 0 };
+
+    std::vector<Rope> myRope2;
+    for (int i = 0; i < 10; i++)
+    {
+        myRope2.push_back(Rope(2));
+    }
 
     if (!potato)
     {
@@ -118,6 +126,13 @@ void elfTail()
         myRope.move(moveDirStr.front(), std::stoi(moveAmountStr));
         std::cout << "(  " << myRope.getHeadPosition().first << "  ,  " << myRope.getHeadPosition().second << " )  ";
         std::cout << "( " << myRope.getTailPosition().first << " ,  " << myRope.getTailPosition().second << " )  " << '\n';
+        
+        for (int j = 0; j < std::stoi(moveAmountStr); j++)
+            for (int i = 0; i < 10; i++)
+        {
+            myRope2[i].move(moveDirStr.front(), 1);
+        }
+
         if (potato.eof()) { break; }
     }
         

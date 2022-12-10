@@ -1,26 +1,27 @@
 #include "Day7.h"
-//still no answer for this one
+
 class File
 {
 private:
-    int size{};
+    std::string size;
     std::string name;
     std::string pathToFile;
 
 public:
     File() {}
-    File(std::string n, int s, std::string p)
+    File(std::string n, std::string s, std::string p)
     {
-        size = s;
         name = n;
+        size = s;
         pathToFile = p;
     }
 
-    void setSize(int s) { size = s; }
-    int getSize() { return size; }
+    int getSize() { return std::stoi(size); }
 
     void setName(std::string n) { name = n; }
     std::string getName() { return name; }
+    std::string getDirName() { return size; }
+
 
     void setPath(std::string p) { pathToFile = p; }
     std::string getPath() { return pathToFile; }
@@ -29,51 +30,44 @@ public:
 class Folder
 {
 private:
-    std::map<int, File> filesInDir;
-    std::map<int, std::string> subDirs;
+    std::vector <Folder> foldersInDir;
+    std::vector <File> filesInDir;
     std::string folderPath;
     std::string dirName;
     int dirSize;
-    int dirLevel;
-    int dirItems;
 
 public:
     Folder() {}
-    Folder(std::string name, int level, std::string p)
+    Folder(std::string name, std::string p)
     {
         dirName = name;
-        dirLevel = level;
         folderPath = p;
-        dirItems = 0;
     }
     
-    void addFile(File f) { filesInDir.insert({ dirItems++, f }); }
-    void addSubDir(std::string s) { subDirs.insert({ dirItems++, s }); }
+    void addFolder( Folder f) { foldersInDir.push_back({ f }); }
+    void addFile(File f) { filesInDir.push_back({f }); }
     
     void setDirName(std::string n) { dirName = n; }
     std::string getDirName() { return dirName; }
-    int getDirItems() { return dirItems; }
-    std::map<int, std::string> getSubDirs() { return subDirs; }
+
+    std::vector <Folder> getSubDirs() { return foldersInDir; }
 
     void printFiles() {
-        for (auto const& idx : filesInDir) {
-            File x = idx.second;
-            std::cout << " File num: " << idx.first << '\n';
-            std::cout << " Name " << x.getName() << " | size: " << x.getSize() << '\n';
+        for (auto &const idx : filesInDir) {
+            std::cout << " Name " << idx.getName() << " | size: " << idx.getSize() << '\n';
         }
     }
 
-    void printSubDirs() {
-        for (auto const& idx : subDirs) {
-            std::cout << " sub dirs " << idx.second  << '\n';
+    void printFolders() {
+        for (auto& const idx : foldersInDir) {
+            std::cout << " Folder:  " << idx.getDirName()  << '\n';
         }
     }
 
-    int getFolderSize() {
-        int folderSize{ 0 };
-        for (auto const& idx : filesInDir) {
-            File x = idx.second;
-            folderSize += x.getSize();
+    int getFolderFileSize() {
+        int folderSize{ 0 }; 
+        for (auto &const idx :  filesInDir) {
+            folderSize += idx.getSize();
         }
         return folderSize;
     }
@@ -87,7 +81,7 @@ void elfDir()
     int totalBytes{ 0 }, dirLevel{ 0 };
 
     std::map<std::string, Folder> fileSys;
-    fileSys.insert({ currentPath, Folder("/", 0, "0")});
+    fileSys.insert({ currentPath, Folder("/", "0")});
 
 
     if (!potato)
@@ -122,28 +116,30 @@ void elfDir()
                     currentPath = currentPath + "/" + strInput;
                     if (fileSys.find(currentPath) == fileSys.end())
                     {
-                        fileSys.insert({ currentPath, Folder(strInput, dirLevel, currentPath) });
+                        fileSys.insert({ currentPath, Folder(strInput, currentPath) });
                     }
                     
                 }
             }
             else if(strInput.compare("ls") == 0)
             {
-                //do nothing?
+                //do nothing
             }
         }
         else if (strInput.compare("dir") == 0)
         {
             potato >> strInput;
+
             if (fileSys.find(currentPath + "/" + strInput) == fileSys.end())
             {
-                fileSys.insert({ currentPath + "/" + strInput, Folder(strInput, dirLevel, currentPath + "/" + strInput) });
+                fileSys.insert({ currentPath + "/" + strInput, Folder(strInput, currentPath + "/" + strInput) });
             }
-            fileSys[currentPath].addSubDir(currentPath + "/" + strInput);
+            fileSys[currentPath].addFolder(Folder(strInput, currentPath + "/" + strInput));
+            
         }
         else if (std::isdigit(strInput[0]))
         {
-            int fileSize = std::stoi(strInput);
+            std::string fileSize = strInput;
             potato >> strInput;
             fileSys[currentPath].addFile(File(strInput, fileSize, currentPath ));
         }
@@ -151,20 +147,33 @@ void elfDir()
         if (potato.eof()) { break; }
     }
     std::cout << "----------------------------------- " << '\n';
-    for (auto const& idx : fileSys) {
-        Folder x = idx.second;
-        std::cout << " Folder: " << idx.first << '\n';
-        //x.printFiles();
-        x.printSubDirs();
-        std::cout << " Folder Size: " << x.getFolderSize() << '\n';
+    
+    int fileSystemSize{ 70000000 }, spaceNeeded{ 30000000 }, size2Delete{ 0 }, currentUnusedSpace{ 0 };
+    std::vector<int> candidates;
 
-        for (auto const& id : x.getSubDirs()) {
-            std::cout << " sub dirs " << id.second << '\n';
+    for (auto const& idx1 : fileSys) {
+        int folderSize{ 0 };
+        for (auto const& idx2 : fileSys) {
+            if (idx2.first.find(idx1.first) != std::string::npos)
+            {
+                folderSize += fileSys[idx2.first].getFolderFileSize();
+            }
         }
+        if (idx1.first.compare("/") == 0) { currentUnusedSpace = fileSystemSize - folderSize ; }
 
-        if (x.getFolderSize() < 100000) { totalBytes += x.getFolderSize(); }
-       
+        std::cout << " Folder: " << idx1.first << '\n';
+        std::cout << " Folder Size: " << folderSize << '\n';
+        std::cout << "----------------------------------- " << '\n';
+        //Part 1
+        if (folderSize < 100000) { totalBytes += folderSize; }
+        //Part 2
+        if (folderSize + currentUnusedSpace > spaceNeeded) {
+            std::cout << " Potato: " << folderSize << '\n';
+            candidates.push_back(folderSize); }
     }
-    std::cout << " Total size: " << totalBytes << '\n';
+    
+    size2Delete = *min_element(candidates.begin(), candidates.end());
+    std::cout << " Total size of folders less than 100000: " << totalBytes << '\n';
+    std::cout << " Total size of folder to delete: " << size2Delete << '\n';
 }
 
