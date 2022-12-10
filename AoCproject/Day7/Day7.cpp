@@ -151,25 +151,25 @@ void elfDir()
     int fileSystemSize{ 70000000 }, spaceNeeded{ 30000000 }, size2Delete{ 0 }, currentUnusedSpace{ 0 };
     std::vector<int> candidates;
 
-    for (auto const& idx1 : fileSys) {
+    for (auto const& idx1 : fileSys) 
+    {
         int folderSize{ 0 };
-        for (auto const& idx2 : fileSys) {
+        for (auto const& idx2 : fileSys) 
+        {
             if (idx2.first.find(idx1.first) != std::string::npos)
             {
                 folderSize += fileSys[idx2.first].getFolderFileSize();
             }
         }
-        if (idx1.first.compare("/") == 0) { currentUnusedSpace = fileSystemSize - folderSize ; }
-
-        std::cout << " Folder: " << idx1.first << '\n';
-        std::cout << " Folder Size: " << folderSize << '\n';
-        std::cout << "----------------------------------- " << '\n';
         //Part 1
         if (folderSize < 100000) { totalBytes += folderSize; }
+        
         //Part 2
-        if (folderSize + currentUnusedSpace > spaceNeeded) {
-            std::cout << " Potato: " << folderSize << '\n';
-            candidates.push_back(folderSize); }
+        if (idx1.first.compare("/") == 0) { currentUnusedSpace = fileSystemSize - folderSize; }
+        if (folderSize + currentUnusedSpace > spaceNeeded) 
+        {
+            candidates.push_back(folderSize); 
+        }
     }
     
     size2Delete = *min_element(candidates.begin(), candidates.end());
